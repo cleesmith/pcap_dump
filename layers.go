@@ -45,23 +45,17 @@ func main() {
 		// in github.com/google/gopacket/packet.go:
 		log.Printf("\n%v. packet=%v:\n", i+1, p.Metadata().CaptureInfo.Timestamp.UTC())
 		// log.Printf("\n%v. packet:\n%#v\n", i+1, p)
-		// log.Printf("file.expectedLayers=%T=%#v\n", file.expectedLayers, file.expectedLayers)
+
 		// see issue: https://github.com/google/gopacket/issues/175
-		log.Printf(p.Dump()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
+		log.Println(p.Dump()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
 		// note: p.Dump output is the same as "hexdump -C some.file"
-		// log.Printf(p.String()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
+		// log.Println(p.String()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
 
 		// Iterate over all layers, printing out each layer type
-		log.Println("All packet layers:")
+		// log.Println("All packet layers:")
 		for _, layer := range p.Layers() {
 			log.Println("- ", layer.LayerType())
 		}
-
-		// for _, layertype := range file.expectedLayers {
-		//  if p.Layer(layertype) == nil {
-		//    log.Fatal("Packet", i, "has no layer type\n%s", layertype, p.Dump())
-		//  }
-		// }
 
 	} // for range packets
 
