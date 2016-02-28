@@ -1,0 +1,15 @@
+.idea
+.DS_Store
+.vagrant
+/docs/html_docs
+*.swp
+*.swo
+
+*_linux64
+*.test
+*.exe
+*.test.exe
+
+build
+/tests/load/logs
+__cls*
