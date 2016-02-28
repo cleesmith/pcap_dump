@@ -1,4 +1,5 @@
 ### Goals
+* explore [osquery](https://osquery.io/)
 * deeper understanding of gopacket and OSI layers; especially network, transport, and session layers
 * fix ```gopacket```'s packet dump (hex/human)
   * so [unifiedbeat](https://github.com/cleesmith/unifiedbeat) works with Go 1.6 and older
