@@ -13,6 +13,9 @@
   * do this using gopacket
     * instead of external programs such as tcpdump and tcpflow
     * so there is just one binary to copy(install) onto servers
+    * offer 2 versions:
+      * command line - goflo**i**
+      * web api using json - goflo**w**
 
 ***
 
