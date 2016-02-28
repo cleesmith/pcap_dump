@@ -7,7 +7,7 @@
   * if possible, avoid ```reflect```
     * see [issue](https://github.com/google/gopacket/issues/175)
       * fails in Go 1.6:
-        * packet.Dump() and packet.String()
+        * ```packet.Dump()``` and ```packet.String()```
         * see [reflect issue](https://golang.org/doc/go1.6#reflect)
 * replace Sguil's and CapME's transcript (session) feature
   * do this using gopacket
