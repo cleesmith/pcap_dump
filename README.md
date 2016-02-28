@@ -2,7 +2,7 @@
   * works great/fast on OS X and Linux, but not available for Windows
   * can use Filebeat or Logstash to index osquery logs into ElasticSearch
 * understand gopacket and [OSI layers](https://en.wikipedia.org/wiki/OSI_model)
-  * link, network, transport, application, and session layers
+  * link, network, transport (TCP/UDP), application, and session layers
   * packets, [pcap](https://wiki.wireshark.org/Development/LibpcapFileFormat), and [pcapng](https://wiki.wireshark.org/Development/PcapNg)
   * [gopacket overview](http://www.devdungeon.com/content/packet-capture-injection-and-analysis-gopacket)
 * fix ```gopacket```'s packet dump (hex/human)
