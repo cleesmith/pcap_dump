@@ -5,10 +5,10 @@
 * fix ```gopacket```'s packet dump (hex/human)
   * so [unifiedbeat](https://github.com/cleesmith/unifiedbeat) works with Go 1.6 and older
   * if possible, avoid ```reflect```
-  * see [issue](https://github.com/google/gopacket/issues/175)
-    * fails in Go 1.6:
-      * packet.Dump() and packet.String()
-      * see [reflect issue](https://golang.org/doc/go1.6#reflect)
+    * see [issue](https://github.com/google/gopacket/issues/175)
+      * fails in Go 1.6:
+        * packet.Dump() and packet.String()
+        * see [reflect issue](https://golang.org/doc/go1.6#reflect)
 * replace Sguil's and CapME's transcript (session) feature
   * do this using gopacket
     * instead of external programs such as tcpdump and tcpflow
