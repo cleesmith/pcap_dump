@@ -17,6 +17,29 @@ go run cls_readpcap.go
 go run httpassembly.go -r example.com-4.pcap
 ```
 
+##### on a virtualbox vm named Go do:
+```
+lsb_release -a
+    No LSB modules are available.
+    Distributor ID: Ubuntu
+    Description:  Ubuntu 14.04.3 LTS
+    Release:  14.04
+    Codename: trusty
+sudo apt-get install libpcap-dev
+    - http://www.devdungeon.com/content/packet-capture-injection-and-analysis-gopacket
+    - http://askubuntu.com/questions/436203/how-do-i-get-the-pcap-lib-on-ubuntu
+    - compiling gopacket needs pcap dev headers like "pcap.h"
+go version --> go version go1.5.1 linux/amd64
+    - go versions prior to 1.6 work with gopacket, coz
+       there's no reflect/struct/interface bug fix, see:
+        https://golang.org/doc/go1.6#reflect
+        https://github.com/golang/go/issues/12367
+git clone https://github.com/cleesmith/golang_learning.git
+cd /home/cleesmith/go/golang_learning/gopacket
+go get github.com/google/gopacket
+go run pcapdump.go -r test_ethernet.pcap
+```
+
 ***
 
 #### Feb 4, 2016:
