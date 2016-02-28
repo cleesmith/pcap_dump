@@ -204,7 +204,7 @@ func (p *packet) recoverDecodeError() {
 // Payload layer and it's internal 'data' field, which contains a large byte
 // array that would really mess up formatting.
 func LayerString(l Layer) string {
-	return fmt.Sprintf("%v\t%s", l.LayerType(), layerString(l, false, false))
+	return fmt.Sprintf("%v LayerType=%d\t%s", l.LayerType(), l.LayerType(), layerString(l, false, false))
 }
 
 // Dumper dumps verbose information on a value.  If a layer type implements
@@ -267,7 +267,8 @@ func layerString(i interface{}, anonymous bool, writeSpace bool) string {
 		var b bytes.Buffer
 		typ := v.Type()
 		if !anonymous {
-			b.WriteByte('{')
+			// b.WriteByte('{')
+			b.WriteByte(' ')
 		}
 		for i := 0; i < v.NumField(); i++ {
 			// Check if this is upper-case.
@@ -294,7 +295,8 @@ func layerString(i interface{}, anonymous bool, writeSpace bool) string {
 			}
 		}
 		if !anonymous {
-			b.WriteByte('}')
+			// b.WriteByte('}')
+			b.WriteByte(' ')
 		}
 		return b.String()
 	case reflect.Slice:
@@ -370,7 +372,8 @@ func layerGoString(i interface{}, b *bytes.Buffer) {
 	case reflect.Struct:
 		t := v.Type()
 		b.WriteString(t.String())
-		b.WriteByte('{')
+		// b.WriteByte('{')
+		b.WriteByte(' ')
 		for i := 0; i < v.NumField(); i += 1 {
 			if i > 0 {
 				b.WriteString(", ")
@@ -387,7 +390,8 @@ func layerGoString(i interface{}, b *bytes.Buffer) {
 				fmt.Fprintf(b, "%s:%#v", t.Field(i).Name, v.Field(i))
 			}
 		}
-		b.WriteByte('}')
+		// b.WriteByte('}')
+		b.WriteByte(' ')
 	default:
 		fmt.Fprintf(b, "%#v", i)
 	}
