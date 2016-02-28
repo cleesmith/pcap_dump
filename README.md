@@ -5,7 +5,7 @@
   * [raw sockets ip layer](http://www.darkcoding.net/uncategorized/raw-sockets-in-go-ip-layer/)
   * [raw sockets link layer](http://www.darkcoding.net/software/raw-sockets-in-go-link-layer/)
   * [mitmproxy](http://www.darkcoding.net/software/decrypt-your-https-traffic-with-mitmproxy/)
-* fix ```gopacket```'s packet dump (hex/human)
+* ~~fix ```gopacket```'s packet dump (hex/human)~~ _[fixed: feb 27, 2016]_
   * so [unifiedbeat](https://github.com/cleesmith/unifiedbeat) works with Go 1.6 and older
   * if possible, avoid ```reflect```
     * see [issue](https://github.com/google/gopacket/issues/175)
