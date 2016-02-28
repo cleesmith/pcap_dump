@@ -1,6 +1,3 @@
-* explore [osquery](https://osquery.io/)
-  * works great/fast on OS X and Linux, but not available for Windows
-  * can use Filebeat or Logstash to index osquery logs into ElasticSearch
 * understand gopacket and [OSI layers](https://en.wikipedia.org/wiki/OSI_model)
   * link, network, transport (TCP/UDP), application, and session layers
   * packets, [pcap](https://wiki.wireshark.org/Development/LibpcapFileFormat), and [pcapng](https://wiki.wireshark.org/Development/PcapNg)
@@ -22,6 +19,9 @@
     * offer 2 versions:
       * command line - goflo**i**
       * web api using json - goflo**w**
+* explore [osquery](https://osquery.io/)
+  * works great/fast on OS X and Linux, but not available for Windows
+  * can use Filebeat or Logstash to index osquery logs into ElasticSearch
 
 ***
 
