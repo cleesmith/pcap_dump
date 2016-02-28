@@ -47,7 +47,8 @@ func main() {
 		// log.Printf("\n%v. packet:\n%#v\n", i+1, p)
 		// log.Printf("file.expectedLayers=%T=%#v\n", file.expectedLayers, file.expectedLayers)
 		// see issue: https://github.com/google/gopacket/issues/175
-		// log.Printf(p.Dump()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
+		log.Printf(p.Dump()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
+		// note: p.Dump output is the same as "hexdump -C some.file"
 		// log.Printf(p.String()) // fails in Go 1.6, see https://golang.org/doc/go1.6#reflect
 
 		// Iterate over all layers, printing out each layer type

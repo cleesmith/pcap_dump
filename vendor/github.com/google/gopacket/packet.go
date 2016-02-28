@@ -243,15 +243,17 @@ func LayerDump(l Layer) string {
 //     write a space before writing more.  This happens when we write various
 //     anonymous values, and need to keep writing more.
 func layerString(i interface{}, anonymous bool, writeSpace bool) string {
+	// feb 2016:
+	// issue: https://github.com/google/gopacket/issues/175
+	// packet.Dump() - fails in Go 1.6 https://golang.org/doc/go1.6#reflect
+	// var bb bytes.Buffer
+	// fmt.Fprintf(&bb, "BROKEN: layerString: i=%T=%#v anonymous=%v writeSpace=%v", i, i, anonymous, writeSpace)
+	// return bb.String()
+
 	// Let String() functions take precedence.
 	if s, ok := i.(fmt.Stringer); ok {
 		return s.String()
 	}
-
-	// feb 2016:
-	// issue: https://github.com/google/gopacket/issues/175
-	// packet.Dump() - fails in Go 1.6 https://golang.org/doc/go1.6#reflect
-
 	// Reflect, and spit out all the exported fields as key=value.
 	v := reflect.ValueOf(i)
 	switch v.Type().Kind() {
@@ -272,7 +274,15 @@ func layerString(i interface{}, anonymous bool, writeSpace bool) string {
 			ftype := typ.Field(i)
 			f := v.Field(i)
 			if ftype.Anonymous {
-				anonStr := layerString(f.Interface(), true, writeSpace)
+				// anonStr := layerString(f.Interface(), true, writeSpace)
+
+				// this seems to only affect output like:
+				// 	"Contents=[..20..] Payload=[..1389..]"
+				// which appears to be "type BaseLayer struct"
+				// we can live without this in unifiedbeat, so
+				// just use an empty string when it's anonymous
+				anonStr := layerString("", true, writeSpace)
+
 				writeSpace = writeSpace || anonStr != ""
 				b.WriteString(anonStr)
 			} else if ftype.PkgPath == "" { // exported
