@@ -1,5 +1,6 @@
 * explore [osquery](https://osquery.io/)
   * works great/fast on OS X and Linux, but not available for Windows
+  * can use Filebeat or Logstash to index osquery logs into ElasticSearch
 * understand gopacket and OSI layers
   * especially network, transport, and session layers
   * packets, pcap format
