@@ -3,6 +3,7 @@
 * deeper understanding of gopacket and OSI layers; especially network, transport, and session layers
 * fix ```gopacket```'s packet dump (hex/human)
   * so [unifiedbeat](https://github.com/cleesmith/unifiedbeat) works with Go 1.6 and older
+  * if possible, avoid ```reflect```
 * replace Sguil's and CapME's transcript (session) feature
   * do this using gopacket
     * instead of external programs such as tcpdump and tcpflow
