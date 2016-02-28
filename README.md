@@ -1,4 +1,5 @@
 * explore [osquery](https://osquery.io/)
+  * works great/fast on OS X and Linux, but not available for Windows
 * understand gopacket and OSI layers
   * especially network, transport, and session layers
   * packets, pcap format
