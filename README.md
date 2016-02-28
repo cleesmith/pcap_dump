@@ -1,5 +1,3 @@
-***
-
 ### Goals
 * deeper understanding of gopacket and OSI layers; especially network, transport, and session layers
 * fix ```gopacket```'s packet dump (hex/human)
