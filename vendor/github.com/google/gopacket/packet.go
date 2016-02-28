@@ -247,6 +247,11 @@ func layerString(i interface{}, anonymous bool, writeSpace bool) string {
 	if s, ok := i.(fmt.Stringer); ok {
 		return s.String()
 	}
+
+	// feb 2016:
+	// issue: https://github.com/google/gopacket/issues/175
+	// packet.Dump() - fails in Go 1.6 https://golang.org/doc/go1.6#reflect
+
 	// Reflect, and spit out all the exported fields as key=value.
 	v := reflect.ValueOf(i)
 	switch v.Type().Kind() {
