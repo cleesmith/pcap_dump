@@ -1,0 +1,11 @@
+{
+	"ImportPath": "github.com/cleesmith/pcap_dump",
+	"GoVersion": "go1.6",
+	"Deps": [
+		{
+			"ImportPath": "github.com/google/gopacket",
+			"Comment": "v1.1.11-79-g3b097a3",
+			"Rev": "3b097a3f06f4af581aed40162263ac34e636381e"
+		}
+	]
+}

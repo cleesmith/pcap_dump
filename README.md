@@ -1,5 +1,7 @@
-_______________________________________________________________________________
-feb 27 2016:
+***
+
+#### Feb 27, 2016:
+```
 https://github.com/cleesmith/pcap_dump
 Go 1.6
 go get github.com/google/gopacket
@@ -13,9 +15,12 @@ godep save
 
 go run cls_readpcap.go
 go run httpassembly.go -r example.com-4.pcap
+```
 
-_______________________________________________________________________________
-Feb 4, 2016:
+***
+
+#### Feb 4, 2016:
+```
 tcpflow is kind of like CapMe or CapAnalysis
 ? limited to tcp sessions ?
 
@@ -48,3 +53,7 @@ tcpflow -a -o tcpflows -r http_espn.pcap
 
 ... suppress report.xml use -X /dev/null
 tcpflow -c -g -FT -X /dev/null -r http_espn.pcap > tcpflow.out
+```
+
+***
+***
