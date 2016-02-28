@@ -28,8 +28,8 @@ godep save
   - what does godep do?
     - looks at the "import"s in each ".go" file
     - makes a copy of the "go get" packages found
-    - our "vendor" folder
-    - it removes the ".git" folder from each package
+    - into "vendor" folder
+    - it removes the ".git" folder from each package in "vendor"
     - creates the "Godeps/Godeps.json" listing
 
 go run cls_readpcap.go
