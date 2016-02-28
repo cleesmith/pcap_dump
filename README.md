@@ -2,7 +2,7 @@
   * works great/fast on OS X and Linux, but not available for Windows
   * can use Filebeat or Logstash to index osquery logs into ElasticSearch
 * understand gopacket and [OSI layers](https://en.wikipedia.org/wiki/OSI_model)
-  * network, transport, and session layers
+  * link, network, transport, application, and session layers
   * packets, [pcap](https://wiki.wireshark.org/Development/LibpcapFileFormat), and [pcapng](https://wiki.wireshark.org/Development/PcapNg)
 * fix ```gopacket```'s packet dump (hex/human)
   * so [unifiedbeat](https://github.com/cleesmith/unifiedbeat) works with Go 1.6 and older
