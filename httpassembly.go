@@ -73,6 +73,7 @@ func (h *httpStream) run() {
 			log.Printf("transport=%v\tsport=%v\tdport=%v\n", h.transport, h.transport.Src(), h.transport.Dst())
 			log.Printf("req: %T\n%v\n", req, req)
 			log.Printf("request bodyBytes=%#v\n", bodyBytes)
+			log.Printf("req.Body=%T=%#v\n", req.Body, req.Body)
 			// }
 			req.Body.Close()
 		}

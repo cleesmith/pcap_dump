@@ -71,8 +71,8 @@ func (f *myFactory) New(netFlow, tcpFlow gopacket.Flow) tcpassembly.Stream {
 	if bd == nil {
 		bd = &bidi{a: s, key: k}
 		log.Printf("[%v] created first side of bidirectional stream", bd.key)
-		// Register bidirectional with the reverse key, so the matching stream going
-		// the other direction will find it.
+		// Register bidirectional with the reverse key, so the matching stream
+		// going the other direction will find it.
 		f.bidiMap[key{netFlow.Reverse(), tcpFlow.Reverse()}] = bd
 	} else {
 		log.Printf("[%v] found second side of bidirectional stream", bd.key)
