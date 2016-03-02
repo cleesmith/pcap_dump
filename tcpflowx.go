@@ -1,17 +1,16 @@
 package main
 
 import (
-	"bytes"
+	"bufio"
 	"fmt"
 	"os/exec"
 	"strings"
+	// "time"
 )
 
 func main() {
 	var err error
 	var cmd *exec.Cmd
-	var stdout bytes.Buffer
-	var stderr bytes.Buffer
 	var cmdArgs []string
 
 	// tcpflow -c -g -FT -X /dev/null -r eventid2.pcap
@@ -34,22 +33,30 @@ func main() {
 	// fmt.Printf("cmd=%T=%#v\n", cmd, cmd)
 	// fmt.Printf("\tworking dir: '%v'\n", cmd.Dir)
 
-	cmd.Stdout = &stdout
-	cmd.Stderr = &stderr
+	stdoutPipe, err := cmd.StdoutPipe()
+	if err != nil {
+		fmt.Printf("Error: cmd.Start: err:\n%v\n", err)
+	}
+
 	err = cmd.Start()
 	if err != nil {
 		fmt.Printf("Error: cmd.Start: err:\n%v\n", err)
-		fmt.Printf("stdout:\n%v\n", stdout.String())
-		fmt.Printf("stderr:\n%v\n", stderr.String())
 		return
 	}
+
+	// read command's stdout line by line
+	in := bufio.NewScanner(stdoutPipe)
+	for in.Scan() {
+		fmt.Printf("line=%#v\n", in.Text())
+	}
+	if err := in.Err(); err != nil {
+		fmt.Printf("Error: err:\n%v\n", err)
+	}
+
 	err = cmd.Wait()
 	if err != nil {
 		fmt.Printf("Error: cmd.Wait: err:\n%v\n", err)
-		fmt.Printf("stdout:\n%v\n", stdout.String())
-		fmt.Printf("stderr:\n%v\n", stderr.String())
 		return
 	}
-	fmt.Printf("stdout:\n%v\n", stdout.String())
-	fmt.Printf("stderr:\n%v\n", stderr.String())
+
 }
