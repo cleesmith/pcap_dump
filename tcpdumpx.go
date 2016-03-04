@@ -14,14 +14,6 @@ func main() {
 	var stderr bytes.Buffer
 	var cmdArgs []string
 
-	// **********************************************
-	// remember the exec.Command executes as though
-	// it did a "cd /" (root dir) and then runs
-	// **********************************************
-
-	// cmdName := strings.TrimSpace("pwd")
-	// cmdArgs = append(cmdArgs, strings.TrimSpace(`-L`))
-
 	// tcpdump -n -tttt -r eventid2.pcap
 	cmdName := strings.TrimSpace("tcpdump")
 	cmdArgs = append(cmdArgs, strings.TrimSpace("-n"))
